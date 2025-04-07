@@ -1,0 +1,25 @@
+# Основное
+pandas
+numpy
+scikit-learn
+matplotlib
+seaborn
+python-dotenv
+
+# Jupyter
+ipykernel
+jupyter
+
+# Перевод текста
+# transformers
+# sentencepiece
+# torch
+
+# Визуализация
+# wordcloud
+
+# Интерфейс
+# streamlit
+
+# Для работы с API Google Translate
+# google-cloud-translate
