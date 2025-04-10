@@ -11,9 +11,9 @@ ipykernel
 jupyter
 
 # Перевод текста
-# transformers
-# sentencepiece
-# torch
+transformers
+sentencepiece
+torch
 
 # Визуализация
 # wordcloud
