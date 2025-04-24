@@ -19,7 +19,7 @@ torch
 # wordcloud
 
 # Интерфейс
-# streamlit
+streamlit
 
 # Для работы с API Google Translate
 # google-cloud-translate

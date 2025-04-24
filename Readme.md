@@ -1,61 +1,110 @@
-# Kazakh Language Toxicity Classification 🧠💬
+# 🧠 Kazakh/English Toxic Comment Classifier
 
-This project is part of a capstone work that focuses on detecting **toxic comments** in **Kazakh language** using machine learning and NLP techniques. The goal is to build a classifier that can distinguish between toxic and non-toxic content in social media platforms.
+A machine learning project for classifying toxic comments using BERT, with a modern UI powered by Streamlit and moderation capabilities via Telegram bot.
 
-## 📌 Objectives
+## 📌 Overview
+This project uses a fine-tuned BERT model to detect toxic comments in English. Users can:
+- Interactively classify comments via a **Streamlit web app**
+- Automatically monitor group chats using a **Telegram moderation bot**
 
-- Classify text comments as toxic or non-toxic.
-- Translate and adapt English datasets to Kazakh using Google Translate API and Hugging Face models.
-- Experiment with baseline models (TF-IDF + Logistic Regression).
-- Prepare the data pipeline for future training with transformers.
+Future versions will also support **Kazakh** language, currently in development.
 
-## 🗃️ Datasets
+---
 
-- [Jigsaw Toxic Comment Classification Challenge](https://www.kaggle.com/competitions/jigsaw-toxic-comment-classification-challenge)
-- [Hate Speech and Offensive Language Dataset](https://www.kaggle.com/datasets/mrmorj/hate-speech-and-offensive-language-dataset)
-- Translations will be done using Google Translate API and Hugging Face MarianMT models.
-- A native Kazakh dataset is discussed in [this IEEE paper](https://ieeexplore.ieee.org/document/10719327) (may be added later).
+## 🚀 Features
 
-## 🧪 Model
+### ✅ Streamlit Web App
+- Enter any English comment to detect toxicity
+- Visualize predictions, confidence scores, and classification results
 
-Baseline model:
-- **TF-IDF Vectorizer**
-- **Logistic Regression**
-- Accuracy: ~89%, F1-score: ~0.89
+### ✅ Telegram Bot
+- Monitors group chat messages
+- Detects and reports toxic content automatically
 
-## 📁 Project Structure
+> 💬 Support for Kazakh text and Telegram moderation in Kazakh is planned for a future release.
 
+---
+
+## 📂 Project Structure
 ```
-├── data/
-│   ├── raw/               # Original datasets
-│   └── processed/         # Cleaned and balanced datasets
-├── notebooks/             # Jupyter notebooks for EDA, modeling
-├── scripts/               # Python scripts (optional automation)
-├── models/                # Saved models (.pkl)
-├── .gitignore
-├── requirements.txt
-└── README.md
+Kazakh Toxic Comments/
+├── app/
+│   └── streamlit_app.py          # Streamlit UI app
+├── bot.py                        # Telegram moderation bot (ignored in git)
+├── models/
+│   └── final_model/              # Trained BERT model (ignored in git)
+├── notebooks/                    # Training logs and experiments
+├── data/                         # Processed datasets
+├── requirements.txt              # Required libraries
+├── .gitignore                    # Excludes large files and secrets
+└── README.md                     # You're here
 ```
 
-## 🚀 Getting Started
+---
 
+## ⚙️ Setup Instructions
+
+### 1. Clone the repo
 ```bash
-git clone https://github.com/Ser1q/Kazakh_language_toxicity_classification.git
-cd Kazakh_language_toxicity_classification
-python -m venv .venv
-source .venv/bin/activate
+git clone https://github.com/yourusername/kazakh-toxic-comment-classifier.git
+cd kazakh-toxic-comment-classifier
+```
+
+### 2. Create environment
+```bash
+conda create -n toxic-env python=3.11
+conda activate toxic-env
 pip install -r requirements.txt
 ```
 
-## 🧠 Future Plans
+### 3. Run Streamlit app
+```bash
+cd app
+streamlit run streamlit_app.py
+```
 
-- Class-level toxic type classification (e.g., insult, threat)
-- Translation quality evaluation
-- Train transformer models (e.g., multilingual BERT)
-- Web demo (Streamlit)
+### 4. Run Telegram bot (optional)
+```bash
+python bot.py
+```
 
-## 👨‍💻 Author
+---
 
-Serik Nuradil · [GitHub](https://github.com/Ser1q)
+## 🔒 Security & .gitignore
+The following files are excluded from Git:
+- Model checkpoints (`*.safetensors`, `*.pt`)
+- API secrets and credentials (`gcp_key.json`, `bot.py`)
+- Checkpoint folders (`notebooks/results/`)
 
-Capstone Project · 2025
+---
+
+## 📊 Model Performance
+
+| Class       | Precision | Recall | F1-score | Support |
+|-------------|-----------|--------|----------|---------|
+| Non-Toxic   | 0.94      | 0.93   | 0.94     | 4132    |
+| Toxic       | 0.93      | 0.94   | 0.94     | 4022    |
+| **Accuracy**|           |        | **0.94** | 8154    |
+| Macro Avg   | 0.94      | 0.94   | 0.94     | 8154    |
+| Weighted Avg| 0.94      | 0.94   | 0.94     | 8154    |
+
+---
+
+## 🌾 Roadmap
+- [x] English toxic comment detection
+- [x] Streamlit front-end interface
+- [x] Telegram bot integration
+- [ ] Kazakh language dataset integration
+- [ ] Streamlit + Telegram multilingual support
+
+---
+
+## 🤝 Contribution
+Pull requests and collaborations are welcome!
+Feel free to fork and suggest new features — especially for Kazakh datasets 💬
+
+---
+
+## 📜 License
+MIT License. See `LICENSE` file for more details.
+
