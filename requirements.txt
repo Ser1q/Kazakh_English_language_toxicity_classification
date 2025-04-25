@@ -6,17 +6,15 @@ matplotlib
 seaborn
 python-dotenv
 
-# Jupyter
-ipykernel
-jupyter
-
-# Перевод текста
+huggingface_hub
 transformers
 sentencepiece
 torch
 
-# Визуализация
-# wordcloud
+# Jupyter
+ipykernel
+jupyter
+
 
 # Интерфейс
 streamlit
