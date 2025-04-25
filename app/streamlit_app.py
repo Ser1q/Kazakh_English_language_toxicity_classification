@@ -1,19 +1,13 @@
 import streamlit as st
 from transformers import BertTokenizerFast, BertForSequenceClassification
 import torch
-from pathlib import Path
+# from pathlib import Path
 
 @st.cache(allow_output_mutation=True)
 def load_model():
-    # Dynamically resolve the path to the model folder
-    script_dir = Path(__file__).parent
-    model_path = script_dir.parent / "models" / "final_model"
-
-    if not model_path.exists():
-        raise FileNotFoundError(f"Model path does not exist: {model_path}")
-
-    tokenizer = BertTokenizerFast.from_pretrained(model_path, local_files_only=True)
-    model = BertForSequenceClassification.from_pretrained(model_path, local_files_only=True)
+    repo_id = "nar9k/toxicity-bert-en"
+    tokenizer = BertTokenizerFast.from_pretrained(repo_id)
+    model = BertForSequenceClassification.from_pretrained(repo_id)
     return tokenizer, model
 
 tokenizer, model = load_model()
